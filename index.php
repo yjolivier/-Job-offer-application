@@ -10,7 +10,7 @@
 	    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	    <script src="https://kit.fontawesome.com/d8e469504a.js"></script>
-		<link rel="stylesheet" type="text/css" href="css/style1.css">
+		<link rel="stylesheet" type="text/css" href="css/style2.css">
 	</head>
 	<body>
 		<div class="container-fluid">
@@ -25,7 +25,7 @@
 								<i class="fas fa-align-justify"></i>
 							</span>
 						</button>
-						<div class="collapse  navbar-collapse" id="collapse_target">
+						<div class="collapse  navbar-collapse " id="collapse_target">
 						<ul class="navbar-nav">
 							<li class="nav-item">
 								<a class="nav-link" href="#">ACCUEIL</a>
@@ -57,12 +57,12 @@
 				$offers = json_decode($link_content, true);
 			?>
 			<section class="row">
-				<table class="table col-lg-12 table-striped">
+				<table class="table col-lg-10 offset-md-1 table-striped" border="1" bordercolor="white" >
 				  <thead>
-				    <tr>
+				    <tr align="center">
 				      <th scope="col">#</th>
-				      <th scope="col">url</th>
 				      <th scope="col">title</th>
+				      <th scope="col">url</th>
 				      <th scope="col">content</th>
 				      <th scope="col">type</th>
 				      <th scope="col">status</th>
@@ -76,10 +76,10 @@
 							foreach ($offers["content"] as $contenu) { 
 				  ?>			
 				  <tbody>
-				    <tr>
+				    <tr align="center">
 				      <th scope="row"><?php echo $numero ?></th>
-				      <td><?php echo $contenu["url"] ?> </td>
 				      <td><?php echo $contenu["title"]?></td>
+				      <td><?php echo $contenu["url"] ?> </td>
 				      <td><?php echo $contenu["content"]?></td>
 				      <td><?php echo $contenu["type"]?></td>
 				      <td><?php echo $contenu["status"]?></td>
