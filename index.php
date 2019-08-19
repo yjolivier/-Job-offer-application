@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Resurection</title>
+		<title>App d'emploi</title>
 		<meta charset="utf-8">
     	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	    <!-- Bootstrap CSS -->
@@ -16,7 +16,7 @@
 		<div class="container-fluid">
 			<header class="row sticky-top">
 				<div class="header-logo col-lg-4 col-md-12 col-sm-6 col-6">
-					<p>OFFRE<br> EMPLOIS</p>
+					<p><a href="index.php"> OFFRE<br> EMPLOIS</a></p>
 				</div>
 				<div class="header-menu col-lg-8 col-md-12 col-sm-6 col-6">
 					<nav class="navbar navbar-expand-md navbar-white bg-#3c00c9">
@@ -48,8 +48,11 @@
 			</section>
 			<?php
 				//recuperation du lien de la page 
-				$link = 'http://barra.herokuapp.com/api/offer';
-
+				$link = 'http://job.samuelguebo.ci/api/offer';
+				if(isset($_GET['page'])){
+					$link = 'http://job.samuelguebo.ci/api/offer?page='.$_GET['page'];
+				}
+				
 				//recuperation du contenu du lien de la page
 				$link_content = file_get_contents($link); 
 
@@ -57,38 +60,51 @@
 				$offers = json_decode($link_content, true);
 			?>
 			<section class="row">
-				<table class="table col-lg-10 offset-md-1 table-striped" border="1" bordercolor="white" >
+				<table class="table col-lg-12 table-striped" border="1" bordercolor="white" >
 				  <thead>
-				    <tr align="center">
+				    <tr>
 				      <th scope="col">#</th>
 				      <th scope="col">title</th>
 				      <th scope="col">url</th>
 				      <th scope="col">content</th>
 				      <th scope="col">type</th>
-				      <th scope="col">status</th>
 				      <th scope="col">pubdate</th>
 				    </tr>
 				  </thead>
-				  <?php
+				  <tbody>
+					  <?php
 				  		//afficha du resultat
 						if (isset($offers["content"])) { 
 							$numero = 1;
 							foreach ($offers["content"] as $contenu) { 
-				  ?>			
-				  <tbody>
-				    <tr align="center">
+					  ?>			
+				  
+				    <tr>
 				      <th scope="row"><?php echo $numero ?></th>
 				      <td><?php echo $contenu["title"]?></td>
-				      <td><?php echo $contenu["url"] ?> </td>
+				      <td><a href="<?php $contenu['url']?>"><?php echo $contenu["url"] ?></a> </td>
 				      <td><?php echo $contenu["content"]?></td>
 				      <td><?php echo $contenu["type"]?></td>
-				      <td><?php echo $contenu["status"]?></td>
 				      <td><?php echo $contenu["pubDate"]?></td>
 				    </tr>
 				  	<?php $numero++;}}?>
 				  </tbody>
 				</table>
 			</section>
+			<div class="row justify-content-md-center pagination">
+				<nav aria-label="Page navigation example mx-auto" style="width: 200px; ">
+					<ul class="pagination justify-content-center">
+					    <?php for ($i=1; $i < $offers["totalPages"] ; $i++):?>
+					    	<li class="page-item">
+					    		<a class="page-link" href="http://localhost/app_offer/index.php?page=<?php echo $i;?>"><?php echo $i;?></a>
+					    	</li>
+					    <?php endfor; ?>
+					</ul>
+				</nav>
+			</div>
+			<div class="signature row">
+				<p>©designed by <a href="https://github.com/yjolivier/"> Olivier Yao</a></p>
+			</div>
 		</div>
 		<!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
