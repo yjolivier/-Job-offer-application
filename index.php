@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>App d'emploi</title>
+		<title>Offres d'emplois</title>
 		<meta charset="utf-8">
     	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	    <!-- Bootstrap CSS -->
@@ -10,13 +10,14 @@
 	    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	    <script src="https://kit.fontawesome.com/d8e469504a.js"></script>
-		<link rel="stylesheet" type="text/css" href="css/style2.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
 	</head>
 	<body>
 		<div class="container-fluid">
 			<header class="row sticky-top">
 				<div class="header-logo col-lg-4 col-md-12 col-sm-6 col-6">
-					<p><a href="index.php"> OFFRE<br> EMPLOIS</a></p>
+					<p><a href="https://github.com/yjolivier/Job-offer-application"> OFFRE<br> EMPLOIS</a></p>
+					
 				</div>
 				<div class="header-menu col-lg-8 col-md-12 col-sm-6 col-6">
 					<nav class="navbar navbar-expand-md navbar-white bg-#3c00c9">
@@ -28,13 +29,10 @@
 						<div class="collapse  navbar-collapse " id="collapse_target">
 						<ul class="navbar-nav">
 							<li class="nav-item">
-								<a class="nav-link" href="#">ACCUEIL</a>
+								<a class="nav-link" href="./">ACCUEIL</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="#">TABLEAU DE BORD</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="#">A PROPOS</a>
+								<a class="nav-link" href="https://github.com/yjolivier/Job-offer-application">A PROPOS</a>
 							</li>
 						</ul>
 						</div>
@@ -43,7 +41,7 @@
 			</header>
 			<section class="row">
 				<div class="section-actualite-title col-lg-12">
-					<h2 align="center">LISTE D'EMPLOI DISPONIBLE</h2>
+					<h2 align="center">LISTE DES OFFRES DISPONIBLES</h2>
 				</div>
 			</section>
 			<?php
@@ -96,14 +94,14 @@
 					<ul class="pagination justify-content-center">
 					    <?php for ($i=1; $i < $offers["totalPages"] ; $i++):?>
 					    	<li class="page-item">
-					    		<a class="page-link" href="http://localhost/app_offer/index.php?page=<?php echo $i;?>"><?php echo $i;?></a>
+					    		<a class="page-link" href="./index.php?page=<?php echo $i;?>"><?php echo $i;?></a>
 					    	</li>
 					    <?php endfor; ?>
 					</ul>
 				</nav>
 			</div>
 			<div class="signature row">
-				<p>©designed by <a href="https://github.com/yjolivier/"> Olivier Yao</a></p>
+				<small>Developed by <a href="https://github.com/yjolivier/"> Olivier Yao</a> and <a href="https://github.com/samuelguebo/">Samuel Guebo</a> | Source code <a href="https://github.com/yjolivier/Job-offer-application">available on Github</a></small>
 			</div>
 		</div>
 		<!-- Optional JavaScript -->
