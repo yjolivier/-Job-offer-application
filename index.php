@@ -14,12 +14,12 @@
 	</head>
 	<body>
 		<div class="container-fluid">
-			<header class="row sticky-top">
-				<div class="header-logo col-lg-4 col-md-12 col-sm-6 col-6">
+			<header class="row">
+				<div class="header-logo col-lg-9 col-md-8 col-sm-8 col-8">
 					<p><a href="https://github.com/yjolivier/Job-offer-application"> OFFRE<br> EMPLOIS</a></p>
 					
 				</div>
-				<div class="header-menu col-lg-8 col-md-12 col-sm-6 col-6">
+				<div class="header-menu  col-lg-3 col-md-4 col-sm-4 col-4">
 					<nav class="navbar navbar-expand-md navbar-white bg-#3c00c9">
 						<button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
 							<span class="navbar-toggler-icon btn-menu">
@@ -58,7 +58,7 @@
 				$offers = json_decode($link_content, true);
 			?>
 			<section class="row">
-				<table class="table col-lg-12 table-striped" border="1" bordercolor="white" >
+				<table class="table table-striped" border="1" bordercolor="white" >
 				  <thead>
 				    <tr>
 				      <th scope="col">#</th>
@@ -80,7 +80,7 @@
 				    <tr>
 				      <th scope="row"><?php echo $numero ?></th>
 				      <td><?php echo $contenu["title"]?></td>
-				      <td><a href="<?php $contenu['url']?>"><?php echo $contenu["url"] ?></a> </td>
+				      <td><a href="<?php echo $contenu["url"] ?>"><?php echo $contenu["url"] ?></a> </td>
 				      <td><?php echo $contenu["content"]?></td>
 				      <td><?php echo $contenu["type"]?></td>
 				      <td><?php echo $contenu["pubDate"]?></td>
