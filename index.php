@@ -41,7 +41,7 @@
 			</header>
 			<section class="row">
 				<div class="section-actualite-title col-lg-12">
-					<h2 align="center">LISTE DES OFFRES DISPONIBLES</h2>
+					<h3 align="center">LISTE DES OFFRES DISPONIBLES</h3>
 				</div>
 			</section>
 			<?php
@@ -61,12 +61,12 @@
 				<table class="table table-striped" border="1" bordercolor="white" >
 				  <thead>
 				    <tr>
-				      <th scope="col">#</th>
-				      <th scope="col">title</th>
-				      <th scope="col">url</th>
-				      <th scope="col">content</th>
-				      <th scope="col">type</th>
-				      <th scope="col">pubdate</th>
+				      <th scope="col" class="numero-coll">#</th>
+				      <th scope="col">Title</th>
+				      <th scope="col" class="link-coll">Lien</th>
+				      <th scope="col">Contenu</th>
+				      <th scope="col" class="type-coll">Type</th>
+				      <th scope="col">Date d'édition</th>
 				    </tr>
 				  </thead>
 				  <tbody>
@@ -76,23 +76,22 @@
 							$numero = 1;
 							foreach ($offers["content"] as $contenu) { 
 					  ?>			
-				  
 				    <tr>
-				      <th scope="row"><?php echo $numero ?></th>
-				      <td><?php echo $contenu["title"]?></td>
-				      <td><a href="<?php echo $contenu["url"] ?>"><?php echo $contenu["url"] ?></a> </td>
-				      <td><?php echo $contenu["content"]?></td>
-				      <td><?php echo $contenu["type"]?></td>
-				      <td><?php echo $contenu["pubDate"]?></td>
+				        <th scope="row" class="numero-coll"><?php echo $numero ?></th>
+				        <td class="title-coll"><a href="<?php echo $contenu["url"] ?>"><?php echo $contenu["title"]?></a></td>
+				        <td class="link-coll"><a href="<?php echo $contenu["url"] ?>"><i class="fas fa-link"></i></a></td>
+				        <td><?php echo $contenu["content"]?></td>
+				        <td class="type-coll"><?php echo $contenu["type"]?></td>
+				        <td><?php echo $contenu["pubDate"]?></td>
 				    </tr>
 				  	<?php $numero++;}}?>
 				  </tbody>
 				</table>
 			</section>
 			<div class="row justify-content-md-center pagination">
-				<nav aria-label="Page navigation example mx-auto" style="width: 200px; ">
+				<nav aria-label="Page navigation example mx-auto">
 					<ul class="pagination justify-content-center">
-					    <?php for ($i=1; $i < $offers["totalPages"] ; $i++):?>
+					    <?php for ($i=1; $i <= 12 ; $i++):?>
 					    	<li class="page-item">
 					    		<a class="page-link" href="./index.php?page=<?php echo $i;?>"><?php echo $i;?></a>
 					    	</li>
@@ -101,7 +100,7 @@
 				</nav>
 			</div>
 			<div class="signature row">
-				<small>Developed by <a href="https://github.com/yjolivier/"> Olivier Yao</a> and <a href="https://github.com/samuelguebo/">Samuel Guebo</a> | Source code <a href="https://github.com/yjolivier/Job-offer-application">available on Github</a></small>
+				<small>© Developed by <a href="https://github.com/yjolivier/"> Olivier Yao</a> and <a href="https://github.com/samuelguebo/">Samuel Guebo</a> | Source code <a href="https://github.com/yjolivier/Job-offer-application">available on Github</a></small>
 			</div>
 		</div>
 		<!-- Optional JavaScript -->
