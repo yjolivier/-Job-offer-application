@@ -91,11 +91,69 @@
 			<div class="row justify-content-md-center pagination">
 				<nav aria-label="Page navigation example mx-auto">
 					<ul class="pagination justify-content-center">
-					    <?php for ($i=1; $i <= 12 ; $i++):?>
-					    	<li class="page-item">
-					    		<a class="page-link" href="./index.php?page=<?php echo $i;?>"><?php echo $i;?></a>
-					    	</li>
-					    <?php endfor; ?>
+						<?php 
+						/**
+						 * Implementing pagination feature
+						 */
+						$pagination_start = 1;
+						$pagination_end = 10;
+						$pages_max_number = 10;
+						$total_pages = 50;
+						$offset = 0;
+						$current_page = 1;
+					
+						// replace static total_pages with API data
+						if(isset($offers['totalPages'])){						
+							$total_pages = (int) $offers['totalPages'];
+						}
+					
+						if($_GET['page']){
+							$current_page = (int) $_GET['page'];	
+
+							$offset = $current_page; 
+				
+							
+							if(($current_page %10 ==0)){
+								$pagination_end = $current_page + $pages_max_number;
+								$pagination_start = $current_page;
+							}else{
+								// get closest multiple of 10
+								$multiple_10 = $current_page - ($current_page%10);
+								// start_pagination closest multiple of 10
+								$pagination_start = $multiple_10;
+								// end_pagination is the next multiple of 10
+								$pagination_end = $multiple_10+10;
+								
+							}
+
+							// Make sure pagination_end does not exceed $total_pages
+							if($pagination_end > $total_pages)
+								$pagination_end = $total_pages;
+
+							// Make sure pagination_start is at least 1
+							if($pagination_start < 1)
+								$pagination_start = 1;
+						}
+
+						// build button HTML
+						$pagination_html = "";
+						for ($i=$pagination_start; $i <= $pagination_end ; $i++){
+							$pagination_html .= '<li class="page-item';
+					
+							// highlight current page with .active class
+							if($i == $current_page){
+								$pagination_html .= ' active ';
+							}
+					
+							$pagination_html .= '">';
+							$pagination_html .= '<a class="page-link" href="';
+							$pagination_html .= './index.php?page=' . $i .'">' .  $i;
+							$pagination_html .=	'</a>';
+							$pagination_html .= '</li>';
+						} 
+					
+						// print HTML code
+						echo $pagination_html;?>
 					</ul>
 				</nav>
 			</div>
